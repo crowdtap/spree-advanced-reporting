@@ -1,28 +1,28 @@
 Admin::ReportsController.class_eval do
-  before_filter :add_own 
+  before_filter :add_own
   before_filter :basic_report_setup, :actions => [:profit, :revenue, :units, :top_products, :top_customers, :geo_revenue, :geo_units, :count]
 
   def add_own
     return if Admin::ReportsController::AVAILABLE_REPORTS.has_key?(:geo_profit)
     Admin::ReportsController::AVAILABLE_REPORTS.merge!(ADVANCED_REPORTS)
   end
-  
+
   ADVANCED_REPORTS = {
-      :revenue		=> { :name => "Revenue", :description => "Revenue" },
-      :units		=> { :name => "Units", :description => "Units" },
-      :profit		=> { :name => "Profit", :description => "Profit" },
-      :count		=> { :name => "Order Count", :description => "Order Count" },
-      :top_products	=> { :name => "Top Products", :description => "Top Products" },
-      :top_customers	=> { :name => "Top Customers", :description => "Top Customers" },
-      :geo_revenue	=> { :name => "Geo Revenue", :description => "Geo Revenue" },
-      :geo_units	=> { :name => "Geo Units", :description => "Geo Units" },
-      :geo_profit	=> { :name => "Geo Profit", :description => "Geo Profit" },
+      :revenue       => { :name => "Revenue", :description       => "Revenue" },
+      :units         => { :name => "Units", :description         => "Units" },
+      :profit        => { :name => "Profit", :description        => "Profit" },
+      :count         => { :name => "Order Count", :description   => "Order Count" },
+      :top_products  => { :name => "Top Products", :description  => "Top Products" },
+      :top_customers => { :name => "Top Customers", :description => "Top Customers" },
+      :geo_revenue   => { :name => "Geo Revenue", :description   => "Geo Revenue" },
+      :geo_units     => { :name => "Geo Units", :description     => "Geo Units" },
+      :geo_profit    => { :name => "Geo Profit", :description    => "Geo Profit" },
   }
 
   def basic_report_setup
-    @reports = ADVANCED_REPORTS
+    @reports  = ADVANCED_REPORTS
     @products = Product.all
-    @taxons = Taxon.all
+    @taxons   = Taxon.all
     if defined?(MultiDomainExtension)
       @stores = Store.all
     end

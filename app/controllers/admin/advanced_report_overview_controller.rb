@@ -1,14 +1,15 @@
 class Admin::AdvancedReportOverviewController < Admin::BaseController
   def index
-    @reports = Admin::ReportsControllerDecorator::ADVANCED_REPORTS
+    @reports  = Admin::ReportsController::ADVANCED_REPORTS
     @products = Product.all
-    @taxons = Taxon.all
+    @taxons   = Taxon.all
     if defined?(MultiDomainExtension)
       @stores = Store.all
     end
-    @report = AdvancedReport::IncrementReport::Revenue.new({ :search => {} })
-    @top_products_report = AdvancedReport::TopReport::TopProducts.new({ :search => {} }, 5)
-    @top_customers_report = AdvancedReport::TopReport::TopCustomers.new({ :search => {} }, 5)
+
+    @report               = AdvancedReport::IncrementReport::Revenue.new({ :search => {} })
+    @top_products_report  = AdvancedReport::TopReport::TopProducts.new({ :search   => {} }, 5)
+    @top_customers_report = AdvancedReport::TopReport::TopCustomers.new({ :search  => {} }, 5)
     @top_customers_report.ruportdata.remove_column("Units")
 
     # From overview_dashboard, Cleanup eventually
