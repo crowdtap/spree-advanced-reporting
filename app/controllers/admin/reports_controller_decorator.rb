@@ -10,13 +10,13 @@ Admin::ReportsController.class_eval do
   ADVANCED_REPORTS = {
       :revenue       => { :name => "Revenue", :description       => "Revenue" },
       :units         => { :name => "Units", :description         => "Units" },
-      :profit        => { :name => "Profit", :description        => "Profit" },
+     # :profit        => { :name => "Profit", :description        => "Profit" },
       :count         => { :name => "Order Count", :description   => "Order Count" },
       :top_products  => { :name => "Top Products", :description  => "Top Products" },
       :top_customers => { :name => "Top Customers", :description => "Top Customers" },
-      :geo_revenue   => { :name => "Geo Revenue", :description   => "Geo Revenue" },
-      :geo_units     => { :name => "Geo Units", :description     => "Geo Units" },
-      :geo_profit    => { :name => "Geo Profit", :description    => "Geo Profit" },
+     # :geo_revenue   => { :name => "Geo Revenue", :description   => "Geo Revenue" },
+     # :geo_units     => { :name => "Geo Units", :description     => "Geo Units" },
+     # :geo_profit    => { :name => "Geo Profit", :description    => "Geo Profit" },
   }
 
   def basic_report_setup
