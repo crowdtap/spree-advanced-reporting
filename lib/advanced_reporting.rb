@@ -11,6 +11,8 @@ module AdvancedReporting
         Rails.env.production? ? require(c) : load(c)
       end
 
+      Rails.application.config.assets.precompile += ['admin/jquery.tablesorter.min.js', 'admin/advanced_reporting.js']
+
       # Ruport::Controller::Table.formats.merge({ :flot => MyFlotFormatter })
       Mime::Type.register "application/pdf", :pdf
 
