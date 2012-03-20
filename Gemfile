@@ -1,1 +1,3 @@
-gem 'ruport', :git => 'git://github.com/ruport/ruport.git', :branch => 'stable'
+source :rubygems
+
+gem 'ruport', :git => 'git://github.com/ruport/ruport.git'
